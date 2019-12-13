@@ -22,3 +22,6 @@ class SubscriptionModelTest(TestCase):
 
     def test_str(self):
         self.assertEqual('Marcelo Garcia', str(self.obj))
+
+    def test_paid_default_to_False(self):
+        self.assertEqual(False, self.obj.paid)
