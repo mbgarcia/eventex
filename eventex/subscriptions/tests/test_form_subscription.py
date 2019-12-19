@@ -18,6 +18,10 @@ class SubscriptionFormTest(TestCase):
 
         self.assert_form_error_code(form, 'cpf', 'length')
 
+    def test_name_must_be_capitalized(self):
+        form = self.make_validated_form(name='JOAO gomes')
+        self.assertEqual('Joao Gomes', form.cleaned_data['name'])
+
     def assert_form_error_code(self, form, field, code):
         errors = form.errors.as_data()
         errors_list = errors[field]
